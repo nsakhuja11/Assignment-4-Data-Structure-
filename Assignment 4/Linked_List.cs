@@ -11,7 +11,7 @@ namespace Assignment_4
         public int data;
         public node next;
     }
-    class Linked_List
+    class Linked_List : IAssignmentInterface
     {
         node head = new node();
         public Linked_List()
@@ -51,6 +51,7 @@ namespace Assignment_4
                 temp = temp.next;
             }
             temp.next = null;
+            Console.WriteLine("Last Node Removed");
         }
 
         public void display()
@@ -63,6 +64,30 @@ namespace Assignment_4
                 temp = temp.next;
             }
             Console.WriteLine(temp.data);
+        }
+
+        public void sort()
+        {
+            int swapTemp;
+            node temp;
+            node temp1;
+            temp = head;
+            while (temp.next != null)
+            {
+                temp1 = temp.next;
+                while (temp1 != null)
+                {
+                    if (temp.data > temp1.data)
+                    {
+                        swapTemp = temp.data;
+                        temp.data = temp1.data;
+                        temp1.data = swapTemp;
+                    }
+                    temp1 = temp1.next;
+                }
+                temp = temp.next;
+            }
+            display();
         }
     }
 }

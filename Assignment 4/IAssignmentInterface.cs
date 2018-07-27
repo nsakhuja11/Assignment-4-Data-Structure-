@@ -11,6 +11,6 @@ namespace Assignment_4
         void add(int element);
         void remove();
         void display();
-        //void sort();
+        void sort();
     }
 }
